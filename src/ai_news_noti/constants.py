@@ -4,7 +4,6 @@ import boto3
 from botocore.exceptions import ClientError
 import json
 
-
 load_dotenv()
 
 DRY = bool(int(os.environ["DRY"]))

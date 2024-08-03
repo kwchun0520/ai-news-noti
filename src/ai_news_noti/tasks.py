@@ -4,6 +4,7 @@ from typing import List
 import requests
 from src.ai_news_noti.constants import TELEGRAM_TOKEN, CHAT_ID
 from loguru import logger
+import multiprocessing
 
 
 def get_news(topic:str) -> List[dict]:
@@ -20,3 +21,23 @@ def send_messages(message:str)-> dict:
     logger.info(response)
 
     return response
+
+
+def call_api(url:str):
+    response = requests.get(url,timeout=10).json
+    return response
+
+
+def send_message_multi(news:list) -> dict:
+    url_list = []
+    for news in news:
+        message = f"{news['title']}\n{news['link']}"
+        url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage?chat_id={CHAT_ID}&text={message}"
+        url_list.append(url)
+
+    with multiprocessing.Pool(processes=5) as pool:
+        results = pool.map(call_api, url_list)
+
+    # Process the results
+    for result in results:
+        logger.info(result)
