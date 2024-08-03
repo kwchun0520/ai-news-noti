@@ -22,5 +22,5 @@ aws lambda create-function  \
 --code ImageUri=$AWS_ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$1:latest \
 --package-type Image \
 --architectures  arm64 \
---environment "Variables={DRY=0}" \
+--environment "Variables={DRY=0,AWS_TELEGRAM_SECRET_NAME=telegram-news-bot-secret,REGION=us-east-1,AWS_TELEGRAM_SECRET_TELEGRAM_TOKEN_KEY=telegram-news-bot-token,AWS_TELEGRAM_SECRET_CHAT_ID_KEY=chat-id}" \
 --timeout 120
