@@ -7,7 +7,6 @@ def handler(event, context) -> dict:
     if news_results:
         for news in news_results:
             send_messages(f"{news['title']}\n{news['link']}")
-
     return {
         "statusCode":200,
         "body":"success"
