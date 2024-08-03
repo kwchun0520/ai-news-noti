@@ -1,0 +1,24 @@
+[project]
+name = "ai-news-noti"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "kwchun0520", email = "ckw05200@gmail.com"},
+]
+dependencies = [
+    "loguru>=0.7.2",
+    "requests>=2.32.3",
+    "GoogleNews>=1.6.15",
+    "typing>=3.7.4.3",
+    "datetime>=5.5",
+    "python-dotenv>=1.0.1",
+    "boto3>=1.34.153",
+    "botocore>=1.34.153",
+]
+requires-python = "==3.10.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
