@@ -23,10 +23,12 @@ def send_messages(message:str)-> dict:
     return response
 
 
+
+## to be fixed: need to mount EC2 to enable multiprocessing
+
 def call_api(url:str):
     response = requests.get(url,timeout=10).json
     return response
-
 
 def send_message_multi(news:list) -> dict:
     url_list = []

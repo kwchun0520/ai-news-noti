@@ -5,10 +5,9 @@ def handler(event, context) -> dict:
     news_results = get_news("AI")
 
     if news_results:
-
-        # for news in news_results:
-        #     send_messages(f"{news['title']}\n{news['link']}")
-        send_message_multi(news_results)
+        for news in news_results:
+            send_messages(f"{news['title']}\n{news['link']}")
+        # send_message_multi(news_results)
 
 
     return {
