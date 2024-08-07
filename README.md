@@ -21,10 +21,12 @@ DRY=0
 pre-steps of using AWS lambda
 
 a. You must create a AWS account and install AWS CLI on local
+
 b. You must set AWS CLI configuration on local by
 ``` bash
 aws configure
 ```
+
 c. create iam role for lambda execution
 ``` bash
 ./create-iam-role.sh
